@@ -1,0 +1,359 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Projects\\Orthologist.Web\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7252E67C-F115-401B-9224-3ECCF53ADCF8}|..\\Orthologist.Bussiness\\Orthologist.Bussiness.csproj|c:\\projects\\orthologist.bussiness\\services\\orthodb\\orthogeneservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7252E67C-F115-401B-9224-3ECCF53ADCF8}|..\\Orthologist.Bussiness\\Orthologist.Bussiness.csproj|c:\\projects\\orthologist.bussiness\\services\\statistic\\musclematrixservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7252E67C-F115-401B-9224-3ECCF53ADCF8}|..\\Orthologist.Bussiness\\Orthologist.Bussiness.csproj|c:\\projects\\orthologist.bussiness\\classes\\statistics\\substitutionmatrix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7252E67C-F115-401B-9224-3ECCF53ADCF8}|..\\Orthologist.Bussiness\\Orthologist.Bussiness.csproj|c:\\projects\\orthologist.bussiness\\classes\\helper\\filteritem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7252E67C-F115-401B-9224-3ECCF53ADCF8}|..\\Orthologist.Bussiness\\Orthologist.Bussiness.csproj|c:\\projects\\orthologist.bussiness\\classes\\helper\\ebitaxonomyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7252E67C-F115-401B-9224-3ECCF53ADCF8}|..\\Orthologist.Bussiness\\Orthologist.Bussiness.csproj|c:\\projects\\orthologist.bussiness\\services\\database\\datatablesprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7252E67C-F115-401B-9224-3ECCF53ADCF8}|..\\Orthologist.Bussiness\\Orthologist.Bussiness.csproj|c:\\projects\\orthologist.bussiness\\services\\database\\elasticprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7252E67C-F115-401B-9224-3ECCF53ADCF8}|..\\Orthologist.Bussiness\\Orthologist.Bussiness.csproj|c:\\projects\\orthologist.bussiness\\services\\statistic\\datatreeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7252E67C-F115-401B-9224-3ECCF53ADCF8}|..\\Orthologist.Bussiness\\Orthologist.Bussiness.csproj|c:\\projects\\orthologist.bussiness\\services\\statistic\\idatamatrixservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7252E67C-F115-401B-9224-3ECCF53ADCF8}|..\\Orthologist.Bussiness\\Orthologist.Bussiness.csproj|c:\\projects\\orthologist.bussiness\\services\\orthodb\\orthogeneparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7252E67C-F115-401B-9224-3ECCF53ADCF8}|..\\Orthologist.Bussiness\\Orthologist.Bussiness.csproj|c:\\projects\\orthologist.bussiness\\services\\orthodb\\orthotreeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7252E67C-F115-401B-9224-3ECCF53ADCF8}|..\\Orthologist.Bussiness\\Orthologist.Bussiness.csproj|c:\\projects\\orthologist.bussiness\\services\\orthodb\\iorthotreeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7252E67C-F115-401B-9224-3ECCF53ADCF8}|..\\Orthologist.Bussiness\\Orthologist.Bussiness.csproj|c:\\projects\\orthologist.bussiness\\services\\orthodb\\iorthogeneservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86B896C9-9DC1-4A03-9199-3CD9E0A12D52}|Orthologist.Web.csproj|c:\\projects\\orthologist.web\\components\\pages\\organismselection.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{86B896C9-9DC1-4A03-9199-3CD9E0A12D52}|Orthologist.Web.csproj|solutionrelative:components\\pages\\organismselection.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86B896C9-9DC1-4A03-9199-3CD9E0A12D52}|Orthologist.Web.csproj|c:\\projects\\orthologist.web\\services\\jsinteorpcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86B896C9-9DC1-4A03-9199-3CD9E0A12D52}|Orthologist.Web.csproj|solutionrelative:services\\jsinteorpcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projects\\Orthologist.Web\\Services\\Bussiness\\ITreeService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Services\\Bussiness\\ITreeService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projects\\Orthologist.Web\\Services\\Bussiness\\IOrganismSelectionService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Services\\Bussiness\\IOrganismSelectionService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projects\\Orthologist.Bussiness\\Services\\OrthoDb\\IOrganismService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projects\\Orthologist.Web\\Services\\Bussiness\\OrganismSelectionService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Services\\Bussiness\\OrganismSelectionService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projects\\Orthologist.Bussiness\\Services\\OrthoDb\\OrganismService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projects\\Orthologist.Web\\Services\\Bussiness\\TreeService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Services\\Bussiness\\TreeService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 13,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "OrganismSelection.razor",
+              "DocumentMoniker": "C:\\Projects\\Orthologist.Web\\Components\\Pages\\OrganismSelection.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\OrganismSelection.razor",
+              "ToolTip": "C:\\Projects\\Orthologist.Web\\Components\\Pages\\OrganismSelection.razor",
+              "RelativeToolTip": "Components\\Pages\\OrganismSelection.razor",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAAIcAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-22T18:15:16.723Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SubstitutionMatrix.cs",
+              "DocumentMoniker": "C:\\Projects\\Orthologist.Bussiness\\Classes\\Statistics\\SubstitutionMatrix.cs",
+              "RelativeDocumentMoniker": "..\\Orthologist.Bussiness\\Classes\\Statistics\\SubstitutionMatrix.cs",
+              "ToolTip": "C:\\Projects\\Orthologist.Bussiness\\Classes\\Statistics\\SubstitutionMatrix.cs",
+              "RelativeToolTip": "..\\Orthologist.Bussiness\\Classes\\Statistics\\SubstitutionMatrix.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T23:28:08.383Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FilterItem.cs",
+              "DocumentMoniker": "C:\\Projects\\Orthologist.Bussiness\\Classes\\Helper\\FilterItem.cs",
+              "RelativeDocumentMoniker": "..\\Orthologist.Bussiness\\Classes\\Helper\\FilterItem.cs",
+              "ToolTip": "C:\\Projects\\Orthologist.Bussiness\\Classes\\Helper\\FilterItem.cs",
+              "RelativeToolTip": "..\\Orthologist.Bussiness\\Classes\\Helper\\FilterItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T23:29:16.197Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EbiTaxonomyInfo.cs",
+              "DocumentMoniker": "C:\\Projects\\Orthologist.Bussiness\\Classes\\Helper\\EbiTaxonomyInfo.cs",
+              "RelativeDocumentMoniker": "..\\Orthologist.Bussiness\\Classes\\Helper\\EbiTaxonomyInfo.cs",
+              "ToolTip": "C:\\Projects\\Orthologist.Bussiness\\Classes\\Helper\\EbiTaxonomyInfo.cs",
+              "RelativeToolTip": "..\\Orthologist.Bussiness\\Classes\\Helper\\EbiTaxonomyInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T23:29:13.133Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ElasticProvider.cs",
+              "DocumentMoniker": "C:\\Projects\\Orthologist.Bussiness\\Services\\Database\\ElasticProvider.cs",
+              "RelativeDocumentMoniker": "..\\Orthologist.Bussiness\\Services\\Database\\ElasticProvider.cs",
+              "ToolTip": "C:\\Projects\\Orthologist.Bussiness\\Services\\Database\\ElasticProvider.cs",
+              "RelativeToolTip": "..\\Orthologist.Bussiness\\Services\\Database\\ElasticProvider.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T23:28:51.558Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DataTablesProvider.cs",
+              "DocumentMoniker": "C:\\Projects\\Orthologist.Bussiness\\Services\\Database\\DataTablesProvider.cs",
+              "RelativeDocumentMoniker": "..\\Orthologist.Bussiness\\Services\\Database\\DataTablesProvider.cs",
+              "ToolTip": "C:\\Projects\\Orthologist.Bussiness\\Services\\Database\\DataTablesProvider.cs",
+              "RelativeToolTip": "..\\Orthologist.Bussiness\\Services\\Database\\DataTablesProvider.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T23:28:36.983Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MuscleMatrixService.cs",
+              "DocumentMoniker": "C:\\Projects\\Orthologist.Bussiness\\Services\\Statistic\\MuscleMatrixService.cs",
+              "RelativeDocumentMoniker": "..\\Orthologist.Bussiness\\Services\\Statistic\\MuscleMatrixService.cs",
+              "ToolTip": "C:\\Projects\\Orthologist.Bussiness\\Services\\Statistic\\MuscleMatrixService.cs",
+              "RelativeToolTip": "..\\Orthologist.Bussiness\\Services\\Statistic\\MuscleMatrixService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T23:27:57.021Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DataTreeService.cs",
+              "DocumentMoniker": "C:\\Projects\\Orthologist.Bussiness\\Services\\Statistic\\DataTreeService.cs",
+              "RelativeDocumentMoniker": "..\\Orthologist.Bussiness\\Services\\Statistic\\DataTreeService.cs",
+              "ToolTip": "C:\\Projects\\Orthologist.Bussiness\\Services\\Statistic\\DataTreeService.cs",
+              "RelativeToolTip": "..\\Orthologist.Bussiness\\Services\\Statistic\\DataTreeService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T23:27:55.534Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IDataMatrixService.cs",
+              "DocumentMoniker": "C:\\Projects\\Orthologist.Bussiness\\Services\\Statistic\\IDataMatrixService.cs",
+              "RelativeDocumentMoniker": "..\\Orthologist.Bussiness\\Services\\Statistic\\IDataMatrixService.cs",
+              "ToolTip": "C:\\Projects\\Orthologist.Bussiness\\Services\\Statistic\\IDataMatrixService.cs",
+              "RelativeToolTip": "..\\Orthologist.Bussiness\\Services\\Statistic\\IDataMatrixService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T23:27:49.881Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OrthoGeneService.cs",
+              "DocumentMoniker": "C:\\Projects\\Orthologist.Bussiness\\Services\\OrthoDb\\OrthoGeneService.cs",
+              "RelativeDocumentMoniker": "..\\Orthologist.Bussiness\\Services\\OrthoDb\\OrthoGeneService.cs",
+              "ToolTip": "C:\\Projects\\Orthologist.Bussiness\\Services\\OrthoDb\\OrthoGeneService.cs",
+              "RelativeToolTip": "..\\Orthologist.Bussiness\\Services\\OrthoDb\\OrthoGeneService.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAYwDQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T23:24:59.662Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "OrthoGeneParser.cs",
+              "DocumentMoniker": "C:\\Projects\\Orthologist.Bussiness\\Services\\OrthoDb\\OrthoGeneParser.cs",
+              "RelativeDocumentMoniker": "..\\Orthologist.Bussiness\\Services\\OrthoDb\\OrthoGeneParser.cs",
+              "ToolTip": "C:\\Projects\\Orthologist.Bussiness\\Services\\OrthoDb\\OrthoGeneParser.cs",
+              "RelativeToolTip": "..\\Orthologist.Bussiness\\Services\\OrthoDb\\OrthoGeneParser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T23:24:45.173Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IOrthoGeneService.cs",
+              "DocumentMoniker": "C:\\Projects\\Orthologist.Bussiness\\Services\\OrthoDb\\IOrthoGeneService.cs",
+              "RelativeDocumentMoniker": "..\\Orthologist.Bussiness\\Services\\OrthoDb\\IOrthoGeneService.cs",
+              "ToolTip": "C:\\Projects\\Orthologist.Bussiness\\Services\\OrthoDb\\IOrthoGeneService.cs",
+              "RelativeToolTip": "..\\Orthologist.Bussiness\\Services\\OrthoDb\\IOrthoGeneService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T23:24:17.527Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ITreeService.cs",
+              "DocumentMoniker": "C:\\Projects\\Orthologist.Web\\Services\\Bussiness\\ITreeService.cs",
+              "RelativeDocumentMoniker": "Services\\Bussiness\\ITreeService.cs",
+              "ToolTip": "C:\\Projects\\Orthologist.Web\\Services\\Bussiness\\ITreeService.cs",
+              "RelativeToolTip": "Services\\Bussiness\\ITreeService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T23:22:55.294Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "JSInteorpController.cs",
+              "DocumentMoniker": "C:\\Projects\\Orthologist.Web\\Services\\JSInteorpController.cs",
+              "RelativeDocumentMoniker": "Services\\JSInteorpController.cs",
+              "ToolTip": "C:\\Projects\\Orthologist.Web\\Services\\JSInteorpController.cs",
+              "RelativeToolTip": "Services\\JSInteorpController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T23:21:37.432Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IOrganismSelectionService.cs",
+              "DocumentMoniker": "C:\\Projects\\Orthologist.Web\\Services\\Bussiness\\IOrganismSelectionService.cs",
+              "RelativeDocumentMoniker": "Services\\Bussiness\\IOrganismSelectionService.cs",
+              "ToolTip": "C:\\Projects\\Orthologist.Web\\Services\\Bussiness\\IOrganismSelectionService.cs",
+              "RelativeToolTip": "Services\\Bussiness\\IOrganismSelectionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T23:04:38.014Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "IOrganismService.cs",
+              "DocumentMoniker": "C:\\Projects\\Orthologist.Bussiness\\Services\\OrthoDb\\IOrganismService.cs",
+              "RelativeDocumentMoniker": "..\\Orthologist.Bussiness\\Services\\OrthoDb\\IOrganismService.cs",
+              "ToolTip": "C:\\Projects\\Orthologist.Bussiness\\Services\\OrthoDb\\IOrganismService.cs",
+              "RelativeToolTip": "..\\Orthologist.Bussiness\\Services\\OrthoDb\\IOrganismService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAsAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T22:57:38.721Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "OrganismSelectionService.cs",
+              "DocumentMoniker": "C:\\Projects\\Orthologist.Web\\Services\\Bussiness\\OrganismSelectionService.cs",
+              "RelativeDocumentMoniker": "Services\\Bussiness\\OrganismSelectionService.cs",
+              "ToolTip": "C:\\Projects\\Orthologist.Web\\Services\\Bussiness\\OrganismSelectionService.cs",
+              "RelativeToolTip": "Services\\Bussiness\\OrganismSelectionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T22:55:27.892Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "OrganismService.cs",
+              "DocumentMoniker": "C:\\Projects\\Orthologist.Bussiness\\Services\\OrthoDb\\OrganismService.cs",
+              "RelativeDocumentMoniker": "..\\Orthologist.Bussiness\\Services\\OrthoDb\\OrganismService.cs",
+              "ToolTip": "C:\\Projects\\Orthologist.Bussiness\\Services\\OrthoDb\\OrganismService.cs",
+              "RelativeToolTip": "..\\Orthologist.Bussiness\\Services\\OrthoDb\\OrganismService.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAYwDkAAABgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T22:38:33.111Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "TreeService.cs",
+              "DocumentMoniker": "C:\\Projects\\Orthologist.Web\\Services\\Bussiness\\TreeService.cs",
+              "RelativeDocumentMoniker": "Services\\Bussiness\\TreeService.cs",
+              "ToolTip": "C:\\Projects\\Orthologist.Web\\Services\\Bussiness\\TreeService.cs",
+              "RelativeToolTip": "Services\\Bussiness\\TreeService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T22:34:46.27Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "IOrthoTreeService.cs",
+              "DocumentMoniker": "C:\\Projects\\Orthologist.Bussiness\\Services\\OrthoDb\\IOrthoTreeService.cs",
+              "RelativeDocumentMoniker": "..\\Orthologist.Bussiness\\Services\\OrthoDb\\IOrthoTreeService.cs",
+              "ToolTip": "C:\\Projects\\Orthologist.Bussiness\\Services\\OrthoDb\\IOrthoTreeService.cs",
+              "RelativeToolTip": "..\\Orthologist.Bussiness\\Services\\OrthoDb\\IOrthoTreeService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAIAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T21:58:08.406Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "OrthoTreeService.cs",
+              "DocumentMoniker": "C:\\Projects\\Orthologist.Bussiness\\Services\\OrthoDb\\OrthoTreeService.cs",
+              "RelativeDocumentMoniker": "..\\Orthologist.Bussiness\\Services\\OrthoDb\\OrthoTreeService.cs",
+              "ToolTip": "C:\\Projects\\Orthologist.Bussiness\\Services\\OrthoDb\\OrthoTreeService.cs",
+              "RelativeToolTip": "..\\Orthologist.Bussiness\\Services\\OrthoDb\\OrthoTreeService.cs",
+              "ViewState": "AgIAAMwAAAAAAAAAAAAuwDsAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T21:57:35.472Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

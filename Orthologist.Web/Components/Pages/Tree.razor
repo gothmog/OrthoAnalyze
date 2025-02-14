@@ -1,0 +1,125 @@
+﻿@using Orthologist.Web.Classes
+@using Orthologist.Web.Models
+@using Orthologist.Web.Services;
+@using Orthologist.Web.Services.Bussiness
+@inject IJSRuntime jsRuntime
+@inject ITreeService treeService;
+@rendermode InteractiveServer
+
+@page "/tree"
+
+<style>
+    .svg-container {
+        width: 100%;        /* Šířka kontejneru může být dynamická nebo pevná */
+        height: 1200px;      /* Nastav pevnou výšku, kterou bude SVG překračovat */
+        overflow-y: auto;   /* Přidání vertikálního scrollbaru */
+        overflow-x: hidden; /* Skrýt horizontální scrollbar, pokud není potřeba */
+        border: 1px solid #ccc;  /* Přidání rámečku kolem SVG pro lepší přehlednost */
+    }
+
+    /* Pro zajištění responsivity můžeš nastavit max-width pro SVG */
+    svg {
+        max-width: 100%;
+        height: auto;
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2">
+            <div class="button-container">
+                <button class="btn btn-primary mb-2" @onclick="TryClick">Obnovení</button>
+                <button class="btn btn-secondary mb-2" @onclick="SearchClick">Hledej</button>
+                <InputText @bind-Value="inputValue" @oninput="OnTaxonInputChanged" class="autocomplete-input" />
+                <ul class="autocomplete-results">
+                    @if (filteredTaxons != null)
+                    {
+                        @foreach (var item in filteredTaxons)
+                        {
+                            <li @onclick="() => OnTaxonItemSelected(item)">@item</li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="col-10">
+            <div class="svg-container">
+            <svg id="treeGraph" width="1600" height="1200"></svg>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    private bool isInitialized = false;
+    private string inputValue { get; set; }
+    private JsInteropController _jsController;
+    private DotNetObjectReference<JsInteropController> _dotNetRef;
+    private List<OrganismDto>? organisms = new List<OrganismDto>();
+    private IList<string> taxons = new List<string>();
+    private IList<string> filteredTaxons = new List<string>();
+    private string _jsonData;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await treeService.EnsureInitializedAsync();
+        taxons = treeService.LoadTaxons();
+        string json = await treeService.GetJsonForGraph();
+        _jsController = new JsInteropController(jsRuntime, treeService);
+        _dotNetRef = DotNetObjectReference.Create(_jsController);
+        _jsonData = json;
+    }
+
+    private void OnTaxonInputChanged(ChangeEventArgs e)
+    {
+        if (e.Value != null && e.Value.ToString().Length > 2)
+        {
+            inputValue = e.Value.ToString();
+            filteredTaxons = taxons
+                .Where(x => x.Contains(inputValue, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+        }
+        else filteredTaxons = new List<string>();
+    }
+
+    private void OnTaxonItemSelected(string selectedItem)
+    {
+        inputValue = selectedItem;
+        filteredTaxons.Clear();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _jsonData = await treeService.GetJsonForGraph();
+            await jsRuntime.InvokeVoidAsync("renderD3Tree", _jsonData, _dotNetRef);
+        }
+    }
+
+    protected async Task TryClick()
+    {
+        await jsRuntime.InvokeVoidAsync("renderD3Tree", _jsonData, _dotNetRef);
+
+    }
+
+    protected async Task SearchClick()
+    {
+        _jsonData = await treeService.LoadSubTree(inputValue);
+        await jsRuntime.InvokeVoidAsync("renderD3Tree", _jsonData, _dotNetRef);
+
+    }
+
+    [JSInvokable]
+    public void OnBackButtonClicked(string nodeId)
+    {
+        
+    }
+
+    public void Dispose()
+    {
+        _jsController?.Dispose();
+        _dotNetRef.Dispose();
+    }
+}

@@ -1,0 +1,142 @@
+{
+    "name": "flare",
+    "id": 1,
+    "children": [
+        {
+            "name": "vis",
+            "id": 2,
+            "children": [
+                {
+                    "name": "events",
+                    "id": 3,
+                    "children": [
+                        {
+                            "name": "DataEvent",
+                            "id": 4,
+                            "size": 2200,
+                            "children": [
+                                {
+                                    "name": "DataEvent",
+                                    "id": 5,
+                                    "size": 800,
+                                    "color": "red"
+                                },
+                                {
+                                    "name": "SelectionEvent",
+                                    "id": 6,
+                                    "size": 600,
+                                    "color": "red"
+                                },
+                                {
+                                    "name": "TooltipEvent",
+                                    "id": 7,
+                                    "size": 300,
+                                    "color": "red"
+                                },
+                                {
+                                    "name": "VisualizationEvent",
+                                    "id": 8,
+                                    "size": 250,
+                                    "color": "red"
+                                },
+                                {
+                                    "name": "TooltipEvent",
+                                    "id": 9,
+                                    "size": 250,
+                                    "color": "red"
+                                },
+                                {
+                                    "name": "DataEvent",
+                                    "id": 10,
+                                    "size": 525,
+                                    "color": "red"
+                                },
+                                {
+                                    "name": "SelectionEvent",
+                                    "id": 11,
+                                    "size": 375,
+                                    "color": "red"
+                                },
+                                {
+                                    "name": "TooltipEvent",
+                                    "id": 12,
+                                    "size": 265,
+                                    "color": "red"
+                                },
+                                {
+                                    "name": "VisualizationEvent",
+                                    "id": 13,
+                                    "size": 136,
+                                    "color": "red"
+                                },
+                                {
+                                    "name": "TooltipEvent",
+                                    "id": 14,
+                                    "size": 100,
+                                    "color": "red"
+                                }
+                            ]
+
+
+                        },
+                        {
+                            "name": "SelectionEvent",
+                            "id": 1,
+                            "size": 1400,
+                            "children": [
+                                {
+                                    "name": "DataEvent",
+                                    "id": 15,
+                                    "size": 525,
+                                    "color": "aqua"
+                                },
+                                {
+                                    "name": "SelectionEvent",
+                                    "id": 16,
+                                    "size": 375,
+                                    "color": "aqua"
+                                },
+                                {
+                                    "name": "TooltipEvent",
+                                    "id": 17,
+                                    "size": 265,
+                                    "color": "aqua"
+                                },
+                                {
+                                    "name": "VisualizationEvent",
+                                    "id": 18,
+                                    "size": 136,
+                                    "color": "aqua"
+                                },
+                                {
+                                    "name": "TooltipEvent",
+                                    "id": 19,
+                                    "size": 100,
+                                    "color": "aqua"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "TooltipEvent",
+                            "id": 20,
+                            "size": 1200,
+                            "color": "green"
+                        },
+                        {
+                            "name": "VisualizationEvent",
+                            "id": 21,
+                            "size": 825,
+                            "color": "blue"
+                        },
+                        {
+                            "name": "TooltipEvent",
+                            "id": 22,
+                            "size": 400,
+                            "color": "purple"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

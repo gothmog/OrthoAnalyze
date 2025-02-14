@@ -1,0 +1,38 @@
+﻿.autocomplete {
+    position: relative;
+    width: 300px; /* Nastaví šířku celého autocomplete pole */
+}
+
+.autocomplete-input {
+    width: 100%; /* Zajistí, že input bude přesně tak široký, jak je kontejner */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box; /* Zajistí, že padding a šířka budou zahrnuty správně */
+}
+
+.autocomplete-results {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 100%; /* Zajistí, že výsledky budou mít stejnou šířku jako input */
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    max-height: 200px; /* Omezí maximální výšku výsledků */
+    overflow-y: auto; /* Přidá posuvník, pokud bude výsledků hodně */
+    z-index: 1; /* Zajistí, že bude seznam viditelný nad ostatními prvky */
+    border: none;
+}
+
+    .autocomplete-results li {
+        padding: 8px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+        .autocomplete-results li:hover {
+            background-color: #f0f0f0;
+        }

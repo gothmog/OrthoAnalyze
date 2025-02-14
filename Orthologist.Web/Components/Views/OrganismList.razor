@@ -1,0 +1,82 @@
+﻿@using Blazorise
+@using Blazorise.Bootstrap5;
+@typeparam TItem
+@inherits ComponentBase
+<style>
+    .list-group {
+        text-align: left; /* Zajistí zarovnání vlevo */
+    }
+</style>
+<div class="container" style="padding-left:0px; padding-right:0px">
+    <div class="list-group">
+        <div class="list-group-item" style="background-color:darkgrey;" >
+            <div class="row">
+                <div class="col">
+                    <span><b>Vybranné organismy</b></span>
+                    <button class="btn btn-danger" @onclick="() => RemoveAll()">🗑️</button>
+                </div>
+            </div>
+        </div>
+        @foreach (var item in Items)
+        {
+            <div class="list-group-item">
+                <div class="row">
+                    <div class="col-9">
+                        <span>@item</span>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-danger" @onclick="() => RemoveItem(item)">🗑️</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public List<TItem> Items { get; set; }
+
+    [Parameter]
+    public RenderFragment<TItem> ItemTemplate { get; set; } // umožňuje přizpůsobit vzhled položky
+
+    [Parameter]
+    public EventCallback<TItem> OnRemove { get; set; }
+
+    [Parameter]
+    public EventCallback<TItem> OnRemoveAll { get; set; }
+
+    private void MoveUp(TItem item)
+    {
+        var index = Items.IndexOf(item);
+        if (index > 0)
+        {
+            (Items[index], Items[index - 1]) = (Items[index - 1], Items[index]);
+            StateHasChanged();
+        }
+    }
+
+    private void MoveDown(TItem item)
+    {
+        var index = Items.IndexOf(item);
+        if (index < Items.Count - 1)
+        {
+            (Items[index], Items[index + 1]) = (Items[index + 1], Items[index]);
+            StateHasChanged();
+        }
+    }
+
+    private async Task RemoveItem(TItem item)
+    {
+        Items.Remove(item);
+        await OnRemove.InvokeAsync(item);
+        StateHasChanged();
+    }
+
+    private async Task RemoveAll()
+    {
+        Items.Clear();
+        await OnRemoveAll.InvokeAsync();
+        StateHasChanged();
+    }
+}

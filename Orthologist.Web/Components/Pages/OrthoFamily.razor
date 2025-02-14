@@ -1,0 +1,169 @@
+﻿@page "/groupDetail"
+@inject NavigationManager NavigationManager
+@inject IOrthoFamilyService groupService;
+
+@using Orthologist.Web.Classes
+@using Orthologist.Web.Models
+@using Orthologist.Web.Services.Bussiness
+@rendermode InteractiveServer
+
+<h3>Group family detail</h3>
+<p>ID: @Id</p>
+<button class="btn btn-secondary mb-2" @onclick="AnalyzeGroup">Analyze</button>
+<div class="container-fluid">
+    <div class="row">
+<div class="col-12">
+    <Grid @ref="grid"
+                  TItem="GeneRecordDto"
+          Class="table table-hover table-bordered table-striped"
+          DataProvider="GeneDataProvider"
+          AllowPaging="true"
+          AllowFiltering="true"
+          AllowSorting="true"
+          Responsive="true"
+          AllowDetailView="true">
+
+                <GridColumn TItem="GeneRecordDto" HeaderText="Organism" PropertyName="Organism" SortString="Organism" Filterable="false" SortKeySelector="item => item.Organism" HeaderTextAlignment="Alignment.Center" TextAlignment="Alignment.Center" FilterTextboxWidth="150">
+            @context.Organism
+        </GridColumn>
+                <GridColumn TItem="GeneRecordDto" HeaderText="Fasta" PropertyName="Fasta" SortString="Fasta" SortKeySelector="item => item.Fasta" Filterable="false" FilterTextboxWidth="550">
+                    @context.Fasta
+        </GridColumn>
+    </Grid>
+
+</div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <label for="organismForLeft" class="form-label">Zadejte název organismu k náhradě</label>
+            <InputText id="organismForLeft" @bind-Value="SelectedOrganism" @oninput="OnTaxonInputChanged" class="autocomplete-input me-2" />
+            <ul class="autocomplete-results">
+                
+                @if (filteredNames != null)
+                {
+                    @foreach (var item in filteredNames)
+                    {
+                        <li @onclick="() => SelectOrganism(item)">@item</li>
+                    }
+                }
+            </ul>
+        </div>
+        <div class="col-8">
+            <label for="candidateGene" class="form-label">Zadejte název organismu:</label>
+            <InputText id="candidateGene" @bind-Value="CandidateOrganism" />
+            <label for="textAreaInput" class="form-label">Zadejte sekvenci:</label>
+            <textarea id="textAreaInput" class="form-control" rows="5" @bind="fastaSequence" placeholder="Zadejte sekvenci..."></textarea>
+        </div>
+    </div>
+</div>
+<button class="btn btn-secondary mb-2" @onclick="AnalyzeGroups">Analyze candidate</button>
+<button class="btn btn-secondary mb-2" @onclick="AnalyzeZscoreGroups">Analyze candidate - Zscore</button>
+<button class="btn btn-secondary mb-2" @onclick="TrasholdGroup">Create group trashold</button>
+<button class="btn btn-secondary mb-2" @onclick="TestGroup">Create test group</button>
+
+
+@code {
+    [Parameter]
+    public string Id { get; set; }
+    public string fastaSequence { get; set; }
+    Grid<GeneRecordDto> grid = default!;
+    Dropdown dropdown = default!;
+    string SelectedOrganism;
+    string CandidateOrganism;
+    List<string> filteredNames;
+    OrthoGroupDto orthoGroup;
+
+    protected override async void OnInitialized()
+    {
+        // Načtení ID z query parametru
+        var uri = new Uri(NavigationManager.Uri);
+        var queryParams = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query);
+
+        if (queryParams.TryGetValue("id", out var idValue))
+        {
+            Id = idValue;
+
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await LoadDataAsync();
+            if (dropdown is not null)
+            {
+                await dropdown.UpdateAsync();
+                await InvokeAsync(StateHasChanged);
+            }
+        }
+    }
+
+    private async Task LoadDataAsync()
+    {
+        orthoGroup = await groupService.GetOrthoGroupDtoAsync(Id);
+        filteredNames = orthoGroup.GeneRecords.Select(x => x.Organism).ToList();
+        // Přinutí Blazor znovu vykreslit komponentu
+    }
+
+    private async Task<GridDataProviderResult<GeneRecordDto>> GeneDataProvider(GridDataProviderRequest<GeneRecordDto> request)
+    {
+        string sortString = "";
+        SortDirection sortDirection = SortDirection.None;
+
+        if (request.Sorting is not null && request.Sorting.Any())
+        {
+            sortString = request.Sorting.FirstOrDefault()!.SortString;
+            sortDirection = request.Sorting.FirstOrDefault()!.SortDirection;
+        }
+        if (orthoGroup == null)
+        {
+            orthoGroup = await groupService.GetOrthoGroupDtoAsync(Id);
+
+        }
+        return await Task.FromResult(new GridDataProviderResult<GeneRecordDto> { Data = orthoGroup.GeneRecords, TotalCount = (int)orthoGroup.GeneRecords.Count });
+    }
+
+    protected async Task AnalyzeGroup()
+    {
+        var orthoGroupAnalyze = groupService.GetOrthoGroupAnalyzeDtoAsync(Id);
+    }
+
+    protected async Task TestGroup()
+    {
+        groupService.SetTestGroup(Id, SelectedOrganism);
+    }
+
+    protected async Task TrasholdGroup()
+    {
+        groupService.SetTrasholdGroup(Id);
+    }
+
+    private void SelectOrganism(string name)
+    {
+        SelectedOrganism = name;
+        filteredNames.Clear();
+    }
+
+    protected async Task AnalyzeGroups()
+    {
+        var orthoGroupAnalyze = groupService.GetOrthoGroupMatrixComparationAsync(Id, SelectedOrganism, new Bussiness.Classes.GeneRecord() { organism_name = CandidateOrganism, Fasta = fastaSequence });
+    }
+
+    protected async Task AnalyzeZscoreGroups()
+    {
+        var orthoGroupAnalyze = groupService.GetOrthoGroupZscoreMatrixComparationAsync(Id, SelectedOrganism, new Bussiness.Classes.GeneRecord() { organism_name = CandidateOrganism, Fasta = fastaSequence });
+    }
+
+    private void OnTaxonInputChanged(ChangeEventArgs e)
+    {
+        if (e.Value != null && e.Value.ToString().Length > 1)
+        {
+            SelectedOrganism = e.Value.ToString();
+            filteredNames = orthoGroup.GeneRecords.Where(x => x.Organism.Contains(SelectedOrganism, StringComparison.OrdinalIgnoreCase)).Select(x => x.Organism).ToList();
+        }
+        else filteredNames = new List<string>();
+    }
+}
+
+

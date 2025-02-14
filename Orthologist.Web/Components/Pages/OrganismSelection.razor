@@ -1,0 +1,237 @@
+﻿@inject ITreeService treeService
+@inject IOrganismSelectionService organismService
+@inject IJSRuntime jsRuntime
+@inject NavigationManager NavigationManager
+
+@page "/organism-selection"
+@using Orthologist.Web.Classes
+@using Orthologist.Web.Models
+@using Orthologist.Web.Services
+@using Orthologist.Web.Services.Bussiness
+@rendermode InteractiveServer
+
+<PageTitle>Organism selection</PageTitle>
+<h1>Organism selection</h1>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <svg id="@($"d3-graph-{Guid.NewGuid()}")"></svg>
+            <div class="svg-container">
+                <svg id="treeGraph"></svg>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <div class="button-container d-flex align-items-start">
+                
+                <InputText @bind-Value="inputValue" @oninput="OnTaxonInputChanged" class="autocomplete-input me-2" />
+
+                <button class="btn btn-secondary mb-2" @onclick="SearchClick">Přidej</button>
+            </div>
+                <ul class="autocomplete-results">
+                    @if (filteredOrgNames != null)
+                    {
+                        @foreach (var item in filteredOrgNames)
+                        {
+                            <li @onclick="() => OnTaxonItemSelected(item)">@item</li>
+                        }
+                    }
+                </ul>
+            <div class="mt-3">
+                <label>
+                    <InputCheckbox @bind-Value="useSimilars" /> Use similar organisms
+                </label>
+            </div>
+            <div class="mt-3">
+                <Orthologist.Web.Components.Views.OrganismList Items="@selectedNames" OnRemove="EventCallback.Factory.Create<string>(this, HandleRemove)" OnRemoveAll="EventCallback.Factory.Create<string>(this, HandleRemoveAll)" />
+            </div>
+        </div>
+        @* <div class="col-3">
+            <h3>File Upload</h3>
+
+            <InputFile OnChange="HandleFileSelected" />
+            @if (!string.IsNullOrEmpty(fileContent))
+            {
+                <pre>@fileContent</pre>
+            }
+        </div> *@
+        <div class="col-9">
+            <Grid
+                @ref="grid"
+                TItem="OrthoGroupDto"
+                  Class="table table-hover table-bordered table-striped"
+                  DataProvider="GeneDataProvider"
+                  AllowPaging="true"
+                  AllowFiltering="true"
+                  AllowSorting="true"
+                  Responsive="true" 
+                  AllowDetailView="true">
+
+                <GridColumn TItem="OrthoGroupDto" HeaderText="OrthoFamily id" PropertyName="OFId" SortString="OFId" Filterable="false" SortKeySelector="item => item.Name" HeaderTextAlignment="Alignment.Center" TextAlignment="Alignment.Center">
+                    @context.Name
+                </GridColumn>
+                <GridColumn TItem="OrthoGroupDto" HeaderText="Family name" PropertyName="FamilyName" SortString="FamilyName" SortKeySelector="item => item.FamilyName" Filterable="true" FilterTextboxWidth="150">
+                    @context.FamilyName
+                </GridColumn>
+                <GridColumn TItem="OrthoGroupDto" HeaderText="Gene count" PropertyName="Count" SortString="Count" SortKeySelector="item => item.Count" Filterable="true">
+                    @context.Count
+                </GridColumn>
+                <GridColumn TItem="OrthoGroupDto" HeaderText="OrthoFamily name" PropertyName="Name" SortString="Name" SortKeySelector="item => item.OrgGroupName" FilterTextboxWidth="250">
+                    @context.OrgGroupName
+                </GridColumn>
+                <GridColumn TItem="OrthoGroupDto" HeaderText="GeneDescriptions" PropertyName="GeneDescriptions" SortString="GeneDescriptions" Filterable="false" SortKeySelector="item => item.GeneDescriptions">
+                    @context.GeneDescriptions
+                </GridColumn>
+                <GridColumn TItem="OrthoGroupDto" HeaderText="Action" Filterable="false">
+                    @{
+                        <a href="/groupDetail?id=@context.Name" target="_blank">View</a>
+                        // <button class="btn btn-secondary mb-2" @onclick="@(() => ViewClick(context.Name))">View</button>
+                     }
+                </GridColumn>
+
+                <GridDetailView TItem="OrthoGroupDto">
+
+                    <Grid TItem="OrganismDto"
+                          Class="table table-hover border-top"
+                          Data="context.Organisms">
+
+                        <GridColumns>
+                            <GridColumn TItem="OrganismDto" Context="org1" HeaderText="OrganismName" PropertyName="OrganismName">
+                                @org1.OrganismName
+                            </GridColumn>
+                            <GridColumn TItem="OrganismDto" Context="org1" HeaderText="OrganismGene" PropertyName="OrganismGene">
+                                @org1.OrganismGene
+                            </GridColumn>
+                        </GridColumns>
+
+                    </Grid>
+
+                </GridDetailView>
+
+            </Grid>
+            <button class="btn btn-secondary mb-2" onclick="AnalyzeGroups">Analyze</button>
+        </div>
+        </div>
+    </div>
+
+@code {
+    Grid<OrthoGroupDto> grid = default!;
+    private string inputValue { get; set; }
+    private string geneInputValue { get; set; }
+    private JsInteropController _jsController;
+    private DotNetObjectReference<JsInteropController> _dotNetRef;
+    private List<OrganismDto>? organisms = new List<OrganismDto>();
+    private IList<string> orgNames = new List<string>();
+    private IList<string> filteredOrgNames = new List<string>();
+    private List<string> selectedNames = new List<string>();
+    private string _jsonData;
+    private string? fileContent;
+    private bool useSimilars = false;
+    private IList<OrthoGroupDto> filteredGroups = new List<OrthoGroupDto>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        orgNames = treeService.LoadSpecies();
+        _jsController = new JsInteropController(jsRuntime, treeService);
+        _dotNetRef = DotNetObjectReference.Create(_jsController);
+        _jsonData = "{}";
+    }
+
+    private void OnTaxonInputChanged(ChangeEventArgs e)
+    {
+        if (e.Value != null && e.Value.ToString().Length > 3)
+        {
+            inputValue = e.Value.ToString();
+            filteredOrgNames = orgNames
+                .Where(x => x.Contains(inputValue, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+        }
+        else filteredOrgNames = new List<string>();
+    }
+
+    private async Task<GridDataProviderResult<OrthoGroupDto>> GeneDataProvider(GridDataProviderRequest<OrthoGroupDto> request)
+    {
+        string sortString = "";
+        SortDirection sortDirection = SortDirection.None;
+
+        if (request.Sorting is not null && request.Sorting.Any())
+        {
+            sortString = request.Sorting.FirstOrDefault()!.SortString;
+            sortDirection = request.Sorting.FirstOrDefault()!.SortDirection;
+        }
+        var result = await organismService.GetOrthoGroupsDtos(selectedNames, request.PageSize, request.PageNumber, request.Filters);
+        filteredGroups = result.Groups;
+        return await Task.FromResult(new GridDataProviderResult<OrthoGroupDto> { Data = result.Groups, TotalCount = (int)result.TotalCount });
+    }
+
+    protected async Task ViewClick(string id)
+    {
+        var url = $"/groupDetail?id={id}";
+        NavigationManager.NavigateTo(url);
+    }
+
+    protected async Task AnalyzeGroups()
+    {
+        
+    }
+
+    protected async Task SearchClick()
+    {
+        selectedNames.Add(inputValue);
+        if(selectedNames.Count > 0)
+        {
+            if (useSimilars) _jsonData = await organismService.GetTreeForOrganismsWithSimilarAsync(selectedNames);
+            else _jsonData = await organismService.GetTreeForOrganismsAsync(selectedNames);
+            jsRuntime.InvokeVoidAsync("renderD3Tree", _jsonData, _dotNetRef, 800);
+            await grid.RefreshDataAsync();
+        }
+    }
+
+    private void OnTaxonItemSelected(string selectedItem)
+    {
+        inputValue = selectedItem;
+        filteredOrgNames.Clear();
+    }
+
+    private async Task HandleRemove(string item)
+    {
+        selectedNames.Remove(item);
+        if (selectedNames.Count > 2)
+        {
+            _jsonData = await organismService.GetTreeForOrganismsAsync(selectedNames);
+            await jsRuntime.InvokeVoidAsync("renderD3Tree", _jsonData, _dotNetRef, 800);
+        }
+    }
+
+    private async Task HandleRemoveAll()
+    {
+        selectedNames.Clear();
+        _jsonData = "{}";
+        await jsRuntime.InvokeVoidAsync("renderD3Tree", _jsonData, _dotNetRef, 100);
+    }
+
+    private async Task HandleFileSelected(InputFileChangeEventArgs e)
+    {
+        var file = e.File;
+        string fileContent = String.Empty;
+        if (file.ContentType == "text/plain")
+        {
+            using var stream = new StreamReader(file.OpenReadStream());
+            string content = await stream.ReadToEndAsync();
+            IList<string> organisms = content.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None).ToList();
+            selectedNames.Clear();
+            foreach(var org in organisms)
+            {
+                selectedNames.Add(org);
+            }
+            _jsonData = await organismService.GetTreeForOrganismsAsync(selectedNames);
+            await jsRuntime.InvokeVoidAsync("renderD3Tree", _jsonData, _dotNetRef, 800);
+        }
+        else
+        {
+            fileContent = "Invalid file type. Please upload a text file.";
+        }
+    }
+}
